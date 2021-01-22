@@ -27,4 +27,16 @@ public class CubeController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
+    //キューブ接触時の効果音再生（課題）
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        //キューブが衝突したら再生（unityちゃんとの衝突は含まない）
+        if(collision.gameObject.tag == "CubeTag" || collision.gameObject.tag == "GroundTag")
+        {
+            GetComponent<AudioSource>().volume = 1;//音量を1にする
+            GetComponent<AudioSource>().Play();//効果音再生
+        }
+    }
 }
